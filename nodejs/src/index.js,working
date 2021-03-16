@@ -1,18 +1,9 @@
-const ENV = process.env.ENV || 'dev';
-
 require('dd-trace').init({
   hostname: process.env.DD_AGENT_HOST,
   port: 8126,
-  env: ENV,
+  env: 'development',
   logInjection: true,
   analytics: true,
-});
-
-var redis = require('redis');
-var client = redis.createClient(6379, 'redis.default.svc.cluster.local'); //creates a new client
-
-client.on('connect', function() {
-    console.log('connected');
 });
 
 const { createLogger, format, transports } = require('winston');
@@ -38,13 +29,8 @@ var app = express();
 app.get('/', function (req, res) {
   logger.log('info', 'A simple log that works with Datadog APM tracing and logging!');
   res.send('Hello world, this will demo Datadog tracing and logging!');
-
-  client.set('dd', 'test', function(err, reply) {
-    console.log(reply);
-  });
 });
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
-

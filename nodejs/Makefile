@@ -12,7 +12,7 @@ run:
 
 .PHONY: run-local
 run-local:
-	docker run  -p 3000:3000 --env-file .env $(IMG_NAME):$(IMG_VERSION)
+	docker run  -d -p 3000:3000 --env-file .env $(IMG_NAME):$(IMG_VERSION)
 
 .PHONY: run-in
 run-in:

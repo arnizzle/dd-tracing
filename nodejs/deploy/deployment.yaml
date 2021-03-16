@@ -24,6 +24,13 @@ spec:
     spec:
       containers:
       - env:
+        - name: ENV
+          valueFrom:
+            configMapKeyRef:
+              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+              name: env
+              # Specify the key associated with the value
+              key: env
         - name: DD_AGENT_HOST
           valueFrom:
             fieldRef:

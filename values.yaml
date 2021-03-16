@@ -938,21 +938,21 @@ agents:
   ## ref: https://docs.datadoghq.com/agent/guide/agent-configuration-files/?tab=agentv6
   ## ref: https://github.com/DataDog/datadog-agent/blob/master/pkg/config/config_template.yaml
   ## Note the `agents.useConfigMap` needs to be set to `true` for this parameter to be taken into account.
-  customAgentConfig: {}
+  customAgentConfig: 
   #   # Autodiscovery for Kubernetes
-  #   listeners:
-  #     - name: kubelet
-  #   config_providers:
-  #     - name: kubelet
-  #       polling: true
+     listeners:
+       - name: kubelet
+     config_providers:
+       - name: kubelet
+         polling: true
   #     # needed to support legacy docker label config templates
-  #     - name: docker
-  #       polling: true
-  #
+       - name: docker
+         polling: true
+ 
   #   # Enable APM by setting the DD_APM_ENABLED envvar to true, or override this configuration
-  #   apm_config:
-  #     enabled: false
-  #     apm_non_local_traffic: true
+     apm_config:
+       enabled: false
+       apm_non_local_traffic: true
   #
   #   # Enable java cgroup handling. Only one of those options should be enabled,
   #   # depending on the agent version you are using along that chart.
@@ -1095,8 +1095,12 @@ clusterChecksRunner:
 
   # clusterChecksRunner.env -- Environment variables specific to Cluster Checks Runner
   ## ref: https://github.com/DataDog/datadog-agent/tree/master/Dockerfiles/agent#environment-variables
-  env: []
+  env: 
+    - name: env
+      value: dev
+
   #   - name: <ENV_VAR_NAME>
+
   #     value: <ENV_VAR_VALUE>
 
   # clusterChecksRunner.volumes -- Specify additional volumes to mount in the cluster checks container
