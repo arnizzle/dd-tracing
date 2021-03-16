@@ -1,14 +1,15 @@
 {
   "name": "dd-tracing",
-  "version": "1.1",
+  "version": "1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js"
+    "start": "node ./src/indexnew.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@datadog/browser-rum": "^1.0",
     "dd-trace": "^0.11.0",
     "express": "^4.16.4",
     "winston": "^3.2.1"

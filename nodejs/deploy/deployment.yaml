@@ -43,7 +43,7 @@ spec:
               fieldPath: metadata.labels['tags.datadoghq.com/version']
 
         name: dd-tracing
-        image: jilsx/dd-trace
+        image: jilsx/dd-trace:nodejs
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
