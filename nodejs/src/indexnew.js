@@ -7,19 +7,6 @@ require('dd-trace').init({
   analytics: true,
 });
 
-import { datadogRum } from '@datadog/browser-rum';
-
-datadogRum.init({
-    applicationId: '99bc3f38-2b01-4f16-933f-a684aadec036',
-    clientToken: 'pubab07b3306c34fef652655080386490ae',
-    site: 'datadoghq.eu',
-    service: 'nodejs',
-    env: 'production',
-    version: '1.0.0',
-    sampleRate: 100,
-    trackInteractions: true
-});
-
 const { createLogger, format, transports } = require('winston');
 const addAppNameFormat = format(info => {
   info.ddtags = {'app': 'dd-tracing', 'team': 'kebab'};

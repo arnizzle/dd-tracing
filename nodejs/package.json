@@ -1,6 +1,6 @@
 {
   "name": "dd-tracing",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@datadog/browser-rum": "^1.0",
     "dd-trace": "^0.11.0",
     "express": "^4.16.4",
     "winston": "^3.2.1"
