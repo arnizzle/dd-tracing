@@ -3,6 +3,10 @@ kind: Deployment
 metadata:
   labels:
     app: dd-tracing
+    tags.datadoghq.com/env: "dev"
+    tags.datadoghq.com/service: "nodejs"
+    tags.datadoghq.com/version: "v1.1"
+
   name: dd-tracing
 spec:
   selector:
@@ -13,6 +17,10 @@ spec:
     metadata:
       labels:
         app: dd-tracing
+        tags.datadoghq.com/env: "dev"
+        tags.datadoghq.com/service: "nodejs"
+        tags.datadoghq.com/version: "v1.1"
+
     spec:
       containers:
       - env:
@@ -21,6 +29,19 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: status.hostIP
+        - name: DD_ENV
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['tags.datadoghq.com/env']
+        - name: DD_SERVICE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['tags.datadoghq.com/service']
+        - name: DD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['tags.datadoghq.com/version']
+
         name: dd-tracing
         image: jilsx/dd-trace
         imagePullPolicy: Always

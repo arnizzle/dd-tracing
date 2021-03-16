@@ -1,6 +1,6 @@
 {
-  "name": "dd-tracing-logging-examples-nodejs",
-  "version": "1.0.0",
+  "name": "dd-tracing",
+  "version": "1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
